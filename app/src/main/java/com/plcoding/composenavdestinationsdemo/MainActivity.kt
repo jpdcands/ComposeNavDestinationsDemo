@@ -45,6 +45,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+
 @Destination(start = true)
 @Composable
 fun LoginScreen(
@@ -60,7 +62,7 @@ fun LoginScreen(
             navigator.navigate(
                 ProfileScreenDestination(
                     User(
-                        name = "Moosie",
+                        name = "Chris P. Bacon",
                         id = "userid",
                         created = LocalDateTime.now()
                     )
@@ -78,7 +80,6 @@ fun ProfileScreen(
     navigator: DestinationsNavigator,
     user: User
 ) {
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -92,7 +93,6 @@ fun ProfileScreen(
         }
     }
 }
-
 @Destination
 @Composable
 fun PostScreen(
