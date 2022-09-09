@@ -1,47 +1,29 @@
 package com.plcoding.composenavdestinationsdemo
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.plcoding.composenavdestinationsdemo.NavGraphs.root
 import com.plcoding.composenavdestinationsdemo.destinations.LoginScreenDestination
-//import com.plcoding.composenavdestinationsdemo.destinations.ScreenThreeDestination
 import com.plcoding.composenavdestinationsdemo.destinations.ScreenOneDestination
 import com.plcoding.composenavdestinationsdemo.destinations.ScreenTwoDestination
 import com.plcoding.composenavdestinationsdemo.ui.theme.ComposeNavDestinationsDemoTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,13 +31,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeNavDestinationsDemoTheme {
                 DestinationsNavHost(navGraph = NavGraphs.root)
+                TopAppBar(
+                    title = {
+                        Text(text = "Compose - Destinations")
+                    }
+                )
             }
         }
     }
 }
-
-
-
 @Destination(start = true)
 @Composable
 fun LoginScreen(
